@@ -75,7 +75,13 @@ defmodule Plymio.Name.Utils do
           # don't propagate the transform(s)
           opts_namel = opts |> Keyword.drop([@plymio_name_opts_key_transform])
 
-          name = name |> Enum.map(fn v -> name_to_string(v, opts_namel) end)
+          name = name
+          |> Enum.map(fn v -> name_to_string(v, opts_namel) end)
+          |> Enum.reject(fn
+            nil -> true
+            "" -> true
+            _ -> false
+          end)
 
           case Keyword.get(opts, @plymio_name_opts_key_separator) do
             x when x != nil -> Enum.join(name, separator_to_string(x))

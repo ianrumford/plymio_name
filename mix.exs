@@ -1,7 +1,7 @@
 defmodule PlymioName.Mixfile do
   use Mix.Project
 
-  @version "0.1.0"
+  @version "0.1.1"
 
   def project do
     [app: :plymio_name,
@@ -23,7 +23,7 @@ defmodule PlymioName.Mixfile do
 
   defp deps do
     [
-      {:ex_doc, "~> 0.14.5", only: :dev}
+      {:ex_doc, "~> 0.15", only: :dev}
     ]
   end
 
@@ -37,8 +37,6 @@ defmodule PlymioName.Mixfile do
   defp description do
     """
     plymio_name: Utility Functions for Names
-
-    plymio is a family of utility function packages
     """
   end
 
